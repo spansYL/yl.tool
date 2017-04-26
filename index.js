@@ -43,7 +43,7 @@ $.extend({
     },
     //截取前n个字符,默认4个
     tool_cutWord : function(str,n) {
-        n = n | 4;
+        n = n || 4;
         var chinessArr = str.match(/[^\x00-\xff]/g);
         var chineseNum = chinessArr ? chinessArr.length : 0;
         var result = str.substring(0, n - chineseNum);
@@ -59,4 +59,3 @@ $.extend({
         return _num;
     }
 });
-   
