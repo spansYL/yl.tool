@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="index.js?t=20170426"></script>
     <style>
         html{
             background-color: #ccc;
@@ -52,6 +52,7 @@
             <option value='5'>统计字符数（中文两个字符)</option>
             <option value='6'>格式化千分位</option>
             <option value='7'>手机号验证</option>
+            <option value="8">截取前几个字符（默认4个字符）</option>
         </select>
         <div>
             <button id="confirmResult">确定</button>
@@ -64,13 +65,14 @@
             var str = $('#testStr').val();
             var tip = '';
             switch(value){
-                case '1': tip = yl_check().checkUrl(str);break;
-                case '2': tip = yl_check().twoDec(str);break;
-                case '3': tip = yl_check().price(str);break;
-                case '4': tip = yl_check().positive(str);break;
-                case '5': tip = yl_check().countWord(str);break;
-                case '6': tip = yl_check().formatThousands(str);break;
-                case '7': tip = yl_check().checkPhone(str);break;
+                case '1': tip = $.tool_checkUrl(str);break;
+                case '2': tip = $.tool_nDec(str);break;
+                case '3': tip = $.tool_price(str);break;
+                case '4': tip = $.tool_positive(str);break;
+                case '5': tip = $.tool_countChar(str);break;
+                case '6': tip = $.tool_formatThousands(str);break;
+                case '7': tip = $.tool_checkPhone(str);break;
+                case '8': tip = $.tool_cutWord(str);break;
                 default:'不存在选项'
             };
 
